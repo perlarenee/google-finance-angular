@@ -1,0 +1,57 @@
+<!-- CODES FOR GOOGLE FINANCE API
+"id": "338568" - internal google security id
+,"t" : "IDX" - stock symbol
+,"e" : "NYSEARCA" - exchange name
+,"l" : "19.72" - last trade price
+,"l_fix" : "19.72" - last trade ?
+,"l_cur" : "19.72" - last trade with currency
+,"s": "0" - last trade size
+,"ltt":"3:59PM EDT" - last trade time
+,"lt" : "May 4, 3:59PM EDT"  - last trade date time long
+,"lt_dts" : "2016-05-04T15:59:59Z" - last trade date time
+,"c" : "-0.31" - change (in ccy) - formatted with +/- cp: Change %
+,"c_fix" : "-0.31" - ? 
+,"cp" : "-1.55" - ? maybe change in numbers
+,"cp_fix" : "-1.55" - ? 
+,"ccol" : "chr" - ? 
+,"pcls_fix" : "20.03" - previous close price
+-->
+
+<div class="container" ng-controller="WorldMarketsCtrl">
+    
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">World Markets</a>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="row">
+        <div class="col-lg-12 table-responsive">
+            <!--tables for tabular data :) ... only-->
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Closing Price</th>
+                        <th>Change (%)</th>
+                        <th>Standard Dev. (1Y)</th>
+                        <th>Date/Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="market in markets">
+                        <td>{{market.name}}</td>
+                        <td>{{market.e}}:{{market.t}}</td>
+                        <td>{{market.l_cur}}</td>
+                        <td>{{market.c_fix}} ({{market.cp}}%)</td> 
+                        <td>{{market.deviation}}</td>
+                        <td>{{market.lt}}</td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+    </div>
+</div>
